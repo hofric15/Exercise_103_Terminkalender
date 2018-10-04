@@ -26,6 +26,20 @@ public class Appointment {
     public String toString() {
         return String.format("%s --> %s", ldt.format(dtf), text);
     }
-    
-    
+
+    public void setLdt(LocalDateTime ldt) {
+        this.ldt = ldt;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    } 
+
+    public LocalDateTime getLdt() {
+        return ldt;
+    }
 }

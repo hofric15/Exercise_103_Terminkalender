@@ -88,7 +88,11 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_onDelete
 
     private void onChange(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onChange
-        
+        dlg.setVisible(true);
+        int index = jList1.getSelectedIndex();
+        Appointment aptReturned = dlg.getApt();
+        Appointment apt = (Appointment)apm.getElementAt(index);
+        apm.change(apt, aptReturned);
     }//GEN-LAST:event_onChange
 
     /**

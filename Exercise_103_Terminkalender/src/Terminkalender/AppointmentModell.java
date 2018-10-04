@@ -29,6 +29,13 @@ public class AppointmentModell extends AbstractListModel{
         this.fireIntervalAdded(this, li.size()-1, li.size()-1);
     }
     
+    public void change(Appointment apt, Appointment aptReturned)
+    {
+        apt.setLdt(aptReturned.getLdt());
+        apt.setText(aptReturned.getText());
+        this.fireIntervalAdded(this, li.size()-1, li.size()-1);
+    }
+    
     @Override
     public int getSize() {
         return li.size();
