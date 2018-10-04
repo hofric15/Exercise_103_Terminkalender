@@ -5,6 +5,7 @@
  */
 package Terminkalender;
 
+import java.io.File;
 import javax.swing.JDialog;
 
 /**
@@ -16,13 +17,17 @@ public class AppointmentGUI extends javax.swing.JFrame {
     /**
      * Creates new form AppointmentGUI
      */
-    
     AppointmentModell apm = new AppointmentModell();
     AppointmentDlg dlg = new AppointmentDlg(this, true);
-    
+
     public AppointmentGUI() {
         initComponents();
         jList1.setModel(apm);
+//        try {
+//            apm.load(new File("./Appointments.bin"));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**
@@ -67,6 +72,11 @@ public class AppointmentGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("termine");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                onExit(evt);
+            }
+        });
 
         jList1.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(jList1);
@@ -89,12 +99,20 @@ public class AppointmentGUI extends javax.swing.JFrame {
 
     private void onChange(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onChange
         int index = jList1.getSelectedIndex();
-        dlg.showAppointment((Appointment)apm.getElementAt(index));
-        dlg.setVisible(true);   
+        dlg.showAppointment((Appointment) apm.getElementAt(index));
+        dlg.setVisible(true);
         Appointment aptReturned = dlg.getApt();
-        Appointment apt = (Appointment)apm.getElementAt(index);
+        Appointment apt = (Appointment) apm.getElementAt(index);
         apm.change(apt, aptReturned);
     }//GEN-LAST:event_onChange
+
+    private void onExit(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_onExit
+        try {
+            apm.save(new File("./Appointments.bin"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_onExit
 
     /**
      * @param args the command line arguments

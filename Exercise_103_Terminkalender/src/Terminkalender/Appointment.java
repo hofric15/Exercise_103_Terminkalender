@@ -5,6 +5,7 @@
  */
 package Terminkalender;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -12,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Richard Hofmeister
  */
-public class Appointment implements Comparable<Appointment>{
+public class Appointment implements Comparable<Appointment>, Serializable{
     private LocalDateTime ldt;
     private String text;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy - HH.mm");
