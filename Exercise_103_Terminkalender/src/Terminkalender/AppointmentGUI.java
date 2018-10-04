@@ -5,6 +5,8 @@
  */
 package Terminkalender;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author Richard Hofmeister
@@ -16,6 +18,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
      */
     
     AppointmentModell apm = new AppointmentModell();
+    AppointmentDlg dlg = new AppointmentDlg(this, true);
     
     public AppointmentGUI() {
         initComponents();
@@ -35,21 +38,6 @@ public class AppointmentGUI extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jDialog1 = new javax.swing.JDialog();
-        jLabel3 = new javax.swing.JLabel();
-        tfTag = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        tfMonat = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        tfJahr = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        tfStunde = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        tfMinute = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        tfText = new javax.swing.JTextField();
-        btUebernehmen = new javax.swing.JButton();
-        btAbbrechen = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
 
@@ -77,51 +65,6 @@ public class AppointmentGUI extends javax.swing.JFrame {
         });
         jPopupMenu1.add(jMenuItem3);
 
-        jDialog1.setTitle("Termin-Eingabe");
-        jDialog1.getContentPane().setLayout(new java.awt.GridLayout(7, 2));
-
-        jLabel3.setText("Tag:");
-        jDialog1.getContentPane().add(jLabel3);
-
-        tfTag.setText("8");
-        jDialog1.getContentPane().add(tfTag);
-
-        jLabel1.setText("Monat:");
-        jDialog1.getContentPane().add(jLabel1);
-
-        tfMonat.setText("9");
-        jDialog1.getContentPane().add(tfMonat);
-
-        jLabel2.setText("Jahr:");
-        jDialog1.getContentPane().add(jLabel2);
-
-        tfJahr.setText("2014");
-        jDialog1.getContentPane().add(tfJahr);
-
-        jLabel5.setText("Stunde");
-        jDialog1.getContentPane().add(jLabel5);
-
-        tfStunde.setText("8");
-        jDialog1.getContentPane().add(tfStunde);
-
-        jLabel6.setText("Minute:");
-        jDialog1.getContentPane().add(jLabel6);
-
-        tfMinute.setText("45");
-        jDialog1.getContentPane().add(tfMinute);
-
-        jLabel4.setText("Text:");
-        jDialog1.getContentPane().add(jLabel4);
-
-        tfText.setText("POS1-Workshop");
-        jDialog1.getContentPane().add(tfText);
-
-        btUebernehmen.setText("übernehmen");
-        jDialog1.getContentPane().add(btUebernehmen);
-
-        btAbbrechen.setText("abbrechen");
-        jDialog1.getContentPane().add(btAbbrechen);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("termine");
 
@@ -134,6 +77,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void onAdd(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onAdd
+        dlg.setVisible(true);
         
     }//GEN-LAST:event_onAdd
 
@@ -181,26 +125,11 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAbbrechen;
-    private javax.swing.JButton btUebernehmen;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<Appointment> jList1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField tfJahr;
-    private javax.swing.JTextField tfMinute;
-    private javax.swing.JTextField tfMonat;
-    private javax.swing.JTextField tfStunde;
-    private javax.swing.JTextField tfTag;
-    private javax.swing.JTextField tfText;
     // End of variables declaration//GEN-END:variables
 }
