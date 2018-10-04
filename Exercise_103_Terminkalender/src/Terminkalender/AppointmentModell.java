@@ -18,6 +18,7 @@ public class AppointmentModell extends AbstractListModel{
 
     public void add(Appointment a)
     {
+        
         li.add(a);
         this.fireIntervalAdded(this, li.size()-1, li.size()-1);
     }

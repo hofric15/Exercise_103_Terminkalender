@@ -5,15 +5,27 @@
  */
 package Terminkalender;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Locale;
+
 /**
  *
  * @author Richard Hofmeister
  */
 public class AppointmentDlg extends javax.swing.JDialog {
-
+    private Appointment apt;
+    
     /**
      * Creates new form AppointmentDlg
      */
+    
+    private AppointmentModell apm = new AppointmentModell();
+    
+    
+    
     public AppointmentDlg(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -83,6 +95,11 @@ public class AppointmentDlg extends javax.swing.JDialog {
         getContentPane().add(tfText);
 
         btUebernehmen.setText("übernehmen");
+        btUebernehmen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onUebernehmen(evt);
+            }
+        });
         getContentPane().add(btUebernehmen);
 
         btAbbrechen.setText("abbrechen");
@@ -100,6 +117,23 @@ public class AppointmentDlg extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_onAbbrechen
 
+    private void onUebernehmen(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onUebernehmen
+        int tag = Integer.parseInt(tfTag.getText());
+        int monat = Integer.parseInt(tfMonat.getText());
+        int jahr = Integer.parseInt(tfJahr.getText());
+        int stunde = Integer.parseInt(tfStunde.getText());
+        int minute = Integer.parseInt(tfMinute.getText());
+        
+        apt = new Appointment(LocalDateTime.of(jahr, monat, tag, stunde, minute), tfText.getText());
+        this.dispose();
+    }//GEN-LAST:event_onUebernehmen
+
+    public Appointment getApt() {
+        return apt;
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */

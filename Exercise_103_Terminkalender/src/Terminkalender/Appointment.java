@@ -6,6 +6,7 @@
 package Terminkalender;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 public class Appointment {
     private LocalDateTime ldt;
     private String text;
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy - HH.mm");
 
     public Appointment(LocalDateTime ldt, String text) {
         this.ldt = ldt;
@@ -22,7 +24,7 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return String.format("%s --> %s", ldt.toString(), text);
+        return String.format("%s --> %s", ldt.format(dtf), text);
     }
     
     
