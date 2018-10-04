@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Richard Hofmeister
  */
-public class Appointment {
+public class Appointment implements Comparable<Appointment>{
     private LocalDateTime ldt;
     private String text;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy - HH.mm");
@@ -41,5 +41,15 @@ public class Appointment {
 
     public LocalDateTime getLdt() {
         return ldt;
+    }
+    
+    @Override
+    public int compareTo(Appointment p) {
+        int res = this.ldt.compareTo(p.ldt);
+        if(res == 0)
+        {
+            return this.ldt.compareTo(p.ldt);
+        }
+        return res;
     }
 }

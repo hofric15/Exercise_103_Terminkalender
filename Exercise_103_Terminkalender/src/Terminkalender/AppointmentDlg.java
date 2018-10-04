@@ -127,7 +127,17 @@ public class AppointmentDlg extends javax.swing.JDialog {
         apt = new Appointment(LocalDateTime.of(jahr, monat, tag, stunde, minute), tfText.getText());
         this.dispose();
     }//GEN-LAST:event_onUebernehmen
-
+    
+    public void showAppointment(Appointment apt)
+    {
+        tfJahr.setText(apt.getLdt().getYear()+"");
+        tfMonat.setText(apt.getLdt().getMonthValue()+"");
+        tfTag.setText(apt.getLdt().getDayOfMonth()+"");
+        tfStunde.setText(apt.getLdt().getHour()+"");
+        tfMinute.setText(apt.getLdt().getMinute()+"");
+        tfText.setText(apt.getText());
+    }
+    
     public Appointment getApt() {
         return apt;
     }

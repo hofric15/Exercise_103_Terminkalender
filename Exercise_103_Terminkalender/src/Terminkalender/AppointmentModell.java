@@ -6,6 +6,7 @@
 package Terminkalender;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.AbstractListModel;
 
 /**
@@ -19,20 +20,29 @@ public class AppointmentModell extends AbstractListModel{
     public void add(Appointment a)
     {     
         li.add(a);
-        this.fireIntervalAdded(this, li.size()-1, li.size()-1);
+        sort();
+        this.fireIntervalAdded(this, li.size()-1, li.size()-1);   
     }
     
     public void remove(int index)
     {
         Appointment a = li.get(index);
         li.remove(a);
+        sort();
         this.fireIntervalAdded(this, li.size()-1, li.size()-1);
+    }
+    
+    public void sort()
+    {
+        Collections.sort(li);
+        this.fireContentsChanged(this, 0, li.size()-1);
     }
     
     public void change(Appointment apt, Appointment aptReturned)
     {
         apt.setLdt(aptReturned.getLdt());
         apt.setText(aptReturned.getText());
+        sort();
         this.fireIntervalAdded(this, li.size()-1, li.size()-1);
     }
     
