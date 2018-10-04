@@ -17,9 +17,15 @@ public class AppointmentModell extends AbstractListModel{
     ArrayList<Appointment> li = new ArrayList<>();
 
     public void add(Appointment a)
-    {
-        
+    {     
         li.add(a);
+        this.fireIntervalAdded(this, li.size()-1, li.size()-1);
+    }
+    
+    public void remove(int index)
+    {
+        Appointment a = li.get(index);
+        li.remove(a);
         this.fireIntervalAdded(this, li.size()-1, li.size()-1);
     }
     
